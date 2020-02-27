@@ -1,9 +1,5 @@
 # Credits
-
-
-## Development Lead
-
-* Saurav Chowdhury <saurav13iitr@gmail.com>
+Saurav Chowdhury, Sreejith Munthikodu, Rob Blumberg, James Huang
 
 ## Contributors
 

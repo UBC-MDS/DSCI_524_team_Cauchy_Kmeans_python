@@ -11,7 +11,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/saurav193/DSCI_524_team_Cauchy_Kmeans_python/issues.
+Report bugs at https://github.com/saurav193/Kmeans_python/issues.
 
 If you are reporting a bug, please include:
 
@@ -31,13 +31,13 @@ and "help wanted" is open to whoever wants to implement it.
 
 ### Write Documentation
 
-DSCI_524_team_Cauchy_Kmeans_python could always use more documentation, whether as part of the
-official DSCI_524_team_Cauchy_Kmeans_python docs, in docstrings, or even on the web in blog posts,
+Kmeans_python could always use more documentation, whether as part of the
+official Kmeans_python docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/saurav193/DSCI_524_team_Cauchy_Kmeans_python/issues.
+The best way to send feedback is to file an issue at https://github.com/saurav193/Kmeans_python/issues.
 
 If you are proposing a feature:
 
@@ -48,20 +48,20 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `DSCI_524_team_Cauchy_Kmeans_python` for local development.
+Ready to contribute? Here's how to set up `Kmeans_python` for local development.
 
-1. Fork the `DSCI_524_team_Cauchy_Kmeans_python` repo on GitHub.
+1. Fork the `Kmeans_python` repo on GitHub.
 
 2. Clone your fork locally:
 
 	```
-	git clone git@github.com:your_name_here/DSCI_524_team_Cauchy_Kmeans_python.git
+	git clone git@github.com:your_name_here/Kmeans_python.git
 	```
 
 3. Install your local copy with Poetry, this is how you set up your fork for local development:
 
 	```
-	cd DSCI_524_team_Cauchy_Kmeans_python/
+	cd Kmeans_python/
 	poetry install
 	```
 
@@ -97,14 +97,14 @@ Before you submit a pull request, check that it meets these guidelines:
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
    feature to the list in README.md.
-3. The pull request should work for Python 3.7 & 3.8. Check https://github.com/saurav193/DSCI_524_team_Cauchy_Kmeans_python/pulls and make sure that the tests pass for all supported Python versions.
+3. The pull request should work for Python 3.7 & 3.8. Check https://github.com/saurav193/Kmeans_python/pulls and make sure that the tests pass for all supported Python versions.
 
 ## Tips
 
 To run a subset of tests:
 
 ```
-py.test tests.test_DSCI_524_team_Cauchy_Kmeans_python
+py.test tests.test_Kmeans_python
 ```
 
 ## Deploying
@@ -120,4 +120,4 @@ A reminder for the maintainers on how to deploy:
 
 ## Code of Conduct
 
-Please note that the DSCI_524_team_Cauchy_Kmeans_python project is released with [this Contributor Code of Conduct](CONDUCT.md). By contributing to this project you agree to abide by its terms.
+Please note that the Kmeans_python project is released with [this Contributor Code of Conduct](CONDUCT.md). By contributing to this project you agree to abide by its terms.
