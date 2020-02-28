@@ -1,8 +1,8 @@
 def elbow(X, centers):
     """
     Creates a plot of inertia vs number of cluster centers
-    as per the elbow method. Returns the inertia values for 
-    all cluster centers. Useful for identifying the optimal 
+    as per the elbow method. Calculates and returns the inertia 
+    values for all cluster centers. Useful for identifying the optimal 
     number of clusters while using k-means clustering algorithm.
 
     Parameters
