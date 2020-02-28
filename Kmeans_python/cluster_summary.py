@@ -27,7 +27,7 @@ def cluster_summary(centroids, cluster_assignments, cluster_distances):
     >>> import pandas as pd
     >>> X = np.array([[1, 2], [1, 4], [1, 0],
     ...               [10, 2], [10, 4], [10, 0]])
-    >>> centers, cluster_ass, distances = fit(X)
+    >>> centers, cluster_ass, distances = fit(X, 2)
     >>> cluster_summary(centers, cluster_ass, distances)
     """
 

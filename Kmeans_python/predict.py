@@ -23,7 +23,7 @@ def predict(X_new, centroids, distance_metric="euclidean"):
     >>> import numpy as np
     >>> X = np.array([[1, 2], [1, 4], [1, 0],
     ...               [10, 2], [10, 4], [10, 0]])
-    >>> centers, cluster_ass, distances = fit(X)
+    >>> centers, cluster_ass, distances = fit(X, 2)
     >>> X_test = np.array([[1, 0], [2, 4], [8, 1],
     ...                    [9, 3], [8, 8], [0, 0]])
     >>> predict(X_test, centers)
