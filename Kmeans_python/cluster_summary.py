@@ -1,4 +1,4 @@
-def elbow(centroids, cluster_assignments, cluster_distances):
+def cluster_summary(centroids, cluster_assignments, cluster_distances):
     """
     Provides summary of groups created from Kmeans clustering, including centroid coordinates,
     number of data points in training data assigned to each cluster, and within-cluster distance metrics.
