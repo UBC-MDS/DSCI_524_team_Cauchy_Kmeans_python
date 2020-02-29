@@ -13,8 +13,8 @@ def silhouette(X, k_array):
 
     Returns
     -------
-    2-d array
-    An array containing each k value paired with a score.
+    1-d array
+    An array containing silhouette scores in the same order as k_array.
 
     Examples
     --------
