@@ -4,7 +4,7 @@ def predict(X_new, centroids, distance_metric="euclidean"):
     
     Parameters
     ----------
-    X : array-like, shape=(n_samples, n_features)
+    X_new : array-like, shape=(n_samples, n_features)
         New data to assign to clusters
     centroids : numpy.ndarray
         N-dimensional array containing cluster center locations
