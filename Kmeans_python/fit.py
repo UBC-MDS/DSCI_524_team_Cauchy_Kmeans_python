@@ -10,7 +10,7 @@ def compute_distance(samples, centers):
     ----------
     
     samples : numpy.ndarray
-    all the data points in our sample
+    all the data points in the sample
     
     centers : numpy.ndarray
     the centroids of the clusters already selected
@@ -154,7 +154,7 @@ def fit(X_train, k, n_init = 10, max_iter = 200):
                 
                 centers[m,:] = np.mean(X[np.where(labels == m)[0], : ], axis = 0)
         
-        updated_inertia = np.sum(np.square(centroid_distances))
+        updated_inertia = np.sum(np.square(np.min(centroid_distances, axis = 1)), axis = 0)
 
         # keeping the best possible values of clusters
         if  updated_inertia < inertia:
