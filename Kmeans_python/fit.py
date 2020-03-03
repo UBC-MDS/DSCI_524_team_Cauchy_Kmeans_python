@@ -166,4 +166,3 @@ def fit(X_train, k, n_init = 10, max_iter = 200):
         i = i + 1
     
     return centers_final, labels_final
-
