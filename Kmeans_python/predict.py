@@ -30,6 +30,9 @@ def predict(X_new, centroids, distance_metric="euclidean"):
     ...                    [9, 3], [8, 8], [0, 0]])
     >>> predict(X_test, centers)
     """
+    if X_new.shape[1] != centroids.shape[1]:
+        raise ValueError("Inputs must have the following shapes: \n'X':(n, m) \n'centroids':(k, m)")
     
     num_examples, num_features = X_new.shape
     return np.argmin(np.sum((X_new.reshape((num_examples, 1 , num_features)) - centroids)**2, axis=2), axis=1)
+        
