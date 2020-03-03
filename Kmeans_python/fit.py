@@ -10,7 +10,7 @@ def compute_distance(samples, centers):
     ----------
     
     samples : numpy.ndarray
-    all the data points in our sample
+    all the data points in the sample
     
     centers : numpy.ndarray
     the centroids of the clusters already selected
@@ -166,4 +166,3 @@ def fit(X_train, k, n_init = 10, max_iter = 200):
         i = i + 1
     
     return centers_final, labels_final
-
