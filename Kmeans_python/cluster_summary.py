@@ -1,3 +1,6 @@
+import numpy as np
+import pandas as pd
+
 def cluster_summary(X, centroids, cluster_assignments):
     """
     Provides summary of groups created from Kmeans clustering, including centroid coordinates,
@@ -37,9 +40,9 @@ def cluster_summary(X, centroids, cluster_assignments):
     
     num_assigned_list = np.zeros(centroids.shape[1])
     inertia_list = np.zeros(centroids.shape[1])
-    for i in np.unique(cluster_ass):
-        num_assigned_list[i] = sum(cluster_ass == i)
-        inertia_list[i] = np.sum((X[cluster_ass == i] - centroids[i])**2)
+    for i in np.unique(cluster_assignments):
+        num_assigned_list[i] = sum(cluster_assignments == i)
+        inertia_list[i] = np.sum((X[cluster_assignments == i] - centroids[i])**2)
 
     df_dict["Number of assigned training points"] = num_assigned_list
     df_dict["Within cluster inertia"] = inertia_list    
