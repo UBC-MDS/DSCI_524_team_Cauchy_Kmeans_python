@@ -34,16 +34,24 @@ def cluster_summary(X, centroids, cluster_assignments):
     >>> cluster_summary(centers, cluster_ass)
     """
     
-    df_dict = {}
-    for i in range(centroids.shape[1]):
-        df_dict[f"x{i+1}"] = centroids[:, i]
+    if np.max(cluster_assignments) > centroids.shape[0]:
+        raise ValueError("Cannot have a cluster assignment greater than the total number of clusters")
     
-    num_assigned_list = np.zeros(centroids.shape[1])
-    inertia_list = np.zeros(centroids.shape[1])
-    for i in np.unique(cluster_assignments):
-        num_assigned_list[i] = sum(cluster_assignments == i)
-        inertia_list[i] = np.sum((X[cluster_assignments == i] - centroids[i])**2)
-
+    try:
+        df_dict = {}
+        for i in range(centroids.shape[1]):
+            df_dict[f"x{i+1}"] = centroids[:, i]
+        num_centroids = centroids.shape[0]
+        num_assigned_list = np.zeros(num_centroids)
+        inertia_list = np.zeros(num_centroids)
+        for i in range(num_centroids):
+            num_assigned_list[i] = sum(cluster_assignments == i)
+            inertia_list[i] = np.sum((X[cluster_assignments == i] - centroids[i, :])**2)
+        
+    except IndexError:
+        print("Inputs must have the following shapes: \n'X':(n, m) \n'centroids':(k, m) \n'cluster_assignments':(n,)")
+        raise
+        
     df_dict["Number of assigned training points"] = num_assigned_list
     df_dict["Within cluster inertia"] = inertia_list    
     
