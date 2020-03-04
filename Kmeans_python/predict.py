@@ -1,3 +1,5 @@
+import numpy as np
+
 def predict(X_new, centroids, distance_metric="euclidean"):
     """
     Assigns new data points to clusters based on closest centroid. 
@@ -7,14 +9,14 @@ def predict(X_new, centroids, distance_metric="euclidean"):
     X_new : array-like, shape=(n_samples, n_features)
         New data to assign to clusters
     centroids : numpy.ndarray
-        N-dimensional array containing cluster center locations
+        array containing cluster center locations
     distance_metric : string
         distance metric to measure proximity of data to cluster centers.
         Can take on values: "euclidean" (default), "manhattan", "mahalanobis"
 
     Returns
     -------
-    list
+    numpy.array, shape=(n_samples, )
         assigned clusters for each point in X_new
     
     Examples
@@ -28,5 +30,9 @@ def predict(X_new, centroids, distance_metric="euclidean"):
     ...                    [9, 3], [8, 8], [0, 0]])
     >>> predict(X_test, centers)
     """
-
-    pass
+    if X_new.shape[1] != centroids.shape[1]:
+        raise ValueError("Inputs must have the following shapes: \n'X':(n, m) \n'centroids':(k, m)")
+    
+    num_examples, num_features = X_new.shape
+    return np.argmin(np.sum((X_new.reshape((num_examples, 1 , num_features)) - centroids)**2, axis=2), axis=1)
+        
