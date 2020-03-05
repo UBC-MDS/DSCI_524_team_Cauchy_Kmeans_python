@@ -1,8 +1,55 @@
 import altair as alt
 import numpy as np
 import pandas as pd
-from sklearn.metrics import silhouette_score
-alt.renderers.enable('notebook')
+from Kmeans_python import fit
+
+def sil_score(X, labels):
+    """
+    Returns the average silhouette score of each sample
+    in a given 2-d array and clustering labels.
+
+    Parameters
+    ----------
+    X : 2-d array, shape=(n_samples, n_features)
+    The data to be clustered.
+    labels : array
+    An array of all the labels.
+
+    Returns
+    -------
+    float
+    The average silhouette score of all points
+    
+
+    Examples
+    --------
+    >>> X = np.array([[1, 2], [1, 4], [1, 0],
+    ...               [10, 2], [10, 4], [10, 0]])
+    >>> labels = np.array([0, 0, 0, 1, 1, 1])
+    >>> sil_score(X, labels)
+    
+    """
+    labels = labels.tolist()
+    score = np.zeros(len(labels))
+    for i in range(0, len(labels)):
+        clusterdist = np.zeros(len(np.unique(labels)))
+        for j in range(0, len(labels)):
+            distance = np.linalg.norm(X[i] - X[j])
+            clusterdist[labels[j]] += distance
+        for j in range(len(clusterdist)):
+            if j == labels[i]:
+                clusterdist[j] = clusterdist[j] / max(labels.count(j)-1, 1)
+            else:
+                clusterdist[j] = clusterdist[j] / labels.count(j)
+        incluster = clusterdist[labels[i]]
+        clusterdist[labels[i]] = np.inf
+        closest = min(clusterdist)
+        temp_score = (closest - incluster) / max(incluster, closest)
+        if labels.count(labels[i]) == 1:
+            temp_score = 0
+        score[i] = temp_score
+    return np.mean(score)
+
 
 def silhouette(X, k_array):
     """
@@ -36,8 +83,8 @@ def silhouette(X, k_array):
 
     scores = []
     for i in range(len(k_array)):
-        centers, labels = fit(k_array[i])
-        score = silhouette_score(X, labels)
+        centers, labels = fit(X, k_array[i])
+        score = sil_score(X, labels)
         scores.append([k_array[i], score])
         
     scores = pd.DataFrame(scores)
