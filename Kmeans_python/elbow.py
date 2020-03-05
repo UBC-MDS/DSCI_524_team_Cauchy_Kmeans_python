@@ -68,3 +68,18 @@ def elbow(X, centers_list):
         inertia.append(np.sum(cluster_inertia))
     # Save results to a dataframe
     results = pd.DataFrame({"K" : centers_list, "inertia" : inertia})
+
+    # Create a plot object of K vs Inertia 
+    p = alt.Chart(results).mark_line().encode(
+        alt.X("k:Q", title="k"),
+        alt.Y("inertia:Q", title="Inertia")).properties(
+        title = "Optimal K Using Elbow Method",
+        width = 700,
+        height = 300
+        ).configure_axis(
+        labelFontSize = 20,
+        titleFontSize = 20
+        ).configure_title(
+        fontSize = 20
+        )
+    return p, inertia
