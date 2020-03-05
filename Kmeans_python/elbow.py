@@ -51,3 +51,20 @@ def elbow(X, centers_list):
     if not (all(isinstance(k, int) for k in centers_list)):
         raise ValueError("Invalid input type in centers_list",
                          "Number of centers should be of type int")
+
+    # If X is a dataframe, convert it into a numpy array
+    if isinstance(X, pd.DataFrame):        
+        X = X.to_numpy()
+  
+    # Iterate through centers list and get inertia
+    inertia = []
+    for k in centers_list:
+        # Fit Kmeans algorithm to get cluster centers and labels
+        centers, labels = fit(X, k, n_init = 10, max_iter = 200)
+        # Compute inertia
+        for cluster in range(k):
+            x_cluster = X[np.where(labels == cluster)]
+            cluster_inertia = np.linalg.norm(x_cluster - centers[cluster])
+        inertia.append(np.sum(cluster_inertia))
+    # Save results to a dataframe
+    results = pd.DataFrame({"K" : centers_list, "inertia" : inertia})
