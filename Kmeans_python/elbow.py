@@ -67,7 +67,7 @@ def elbow(X, centers_list):
             cluster_inertia = np.linalg.norm(x_cluster - centers[cluster])
         inertia.append(np.sum(cluster_inertia))
     # Save results to a dataframe
-    results = pd.DataFrame({"K" : centers_list, "inertia" : inertia})
+    results = pd.DataFrame({"k" : centers_list, "inertia" : inertia})
 
     # Create a plot object of K vs Inertia 
     p = alt.Chart(results).mark_line().encode(
