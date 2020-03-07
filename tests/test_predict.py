@@ -12,6 +12,6 @@ def test_predict():
     # Test cases
     assert predict(X_new, centroids).shape[0] == X_new.shape[0], \
            "Each points in new data needs to be assigned a centroid"
-    assert predict(centroids, centroids).shape[0] == np.arange(centroids.shape[0]), \
+    assert (predict(centroids, centroids) == np.arange(centroids.shape[0])).all(), \
            "Points with same coordinates as centroids should be assigned to that centroid"
     
