@@ -110,15 +110,15 @@ def fit(X_train, k, n_init = 10, max_iter = 200):
         raise ValueError("Invalid input type for samples."
                          " X_train must be pandas dataframe or a numpy array.")
         
-    if n_init <= 0:
+    if (n_init <= 0) | (not (isinstance(n_init, int))):
         raise ValueError("Invalid number of initializations."
                          " n_init=%d must be bigger than zero." % n_init)
 
-    if max_iter <= 0:
+    if (max_iter <= 0) | (not (isinstance(max_iter, int))):
         raise ValueError("Number of interations should be a positive integer."
                          " max_iter=%d must be bigger than zero." % max_iter)
     
-    if k < 1:
+    if (k < 1) | (not (isinstance(k, int))):
         raise ValueError("Invalid number of clusters."
                          " k=%d must be an integer bigger than or equal to 1." % k)
     
