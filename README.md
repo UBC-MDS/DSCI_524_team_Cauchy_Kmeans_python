@@ -8,19 +8,21 @@ Saurav, Rob, James, Sree
 
 ### Milestone 1 README
 
-For this project, we will be creating python and R packages that implement k-means clustering from scratch. This will work on any dataset with valid numerical features, and includes fit, predict, and score functions, as well as as elbow and silhouette methods for hyperparameter “k” optimization.
+This package will include python packages that implement k-means clustering from scratch. This will work on any dataset with valid numerical features, and includes fit, predict, and score functions, as well as as elbow and silhouette methods for hyperparameter “k” optimization.
 
-+ fit: Outputs a list of cluster centres based on the inputted dataset and k. Only clustered based on valid numerical features.
++ fit: This function classifies the non-labeled data into a given number of clusters k using simple KMeans algorithm. It returns labels for each data point according to the cluster it belongs and also cluster centers. This is a type of unsupervised learning method to classify data.
 
 + predict: Assigns each point in a dataset to a cluster. Dataset has to be in the same format as the original dataset the model was fit on.
 
 + score: Outputs a score based on goodness of fit.
 
-+ elbow: Outputs the optimal k hyperparameter using the elbow method
++ elbow: Creates a plot of inertia vs number of cluster centers as per the elbow method. Calculates and returns the inertia values for all cluster centers. Useful for identifying the optimal number of clusters while using k-means clustering algorithm.
 
-+ silhouette: Outputs the optimal k hyperparameter using the silhouette method.
++ silhouette: Returns the average silhouette score of each sample in a given 2-d array and clustering labels.
 
-There is a python package sklearn.cluster.KMeans that has similar functions, and a built in k-means function in R. These packages are not meant to add to the existing ecosystem; they are rather intended to deepen our fundamental understanding of these algorithms.
++ cluster_summary: Provides summary of groups created from Kmeans clustering, including centroid coordinates, number of data points in training data assigned to each cluster, and within-cluster distance metrics.
+
+There is a python package sklearn.cluster.KMeans that has similar functions, and a built in k-means function in R. These packages are not meant to add to the existing ecosystem; they are rather intended to deepen fundamental understanding of these algorithms.
 
 ### Installation:
 
