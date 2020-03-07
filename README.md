@@ -14,7 +14,6 @@ This package will include python packages that implement k-means clustering from
 
 + predict: Assigns each point in a dataset to a cluster. Dataset has to be in the same format as the original dataset the model was fit on.
 
-+ score: Outputs a score based on goodness of fit.
 
 + elbow: Creates a plot of inertia vs number of cluster centers as per the elbow method. Calculates and returns the inertia values for all cluster centers. Useful for identifying the optimal number of clusters while using k-means clustering algorithm.
 
