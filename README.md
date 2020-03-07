@@ -8,7 +8,7 @@ Saurav, Rob, James, Sree
 
 ### Milestone 1 README
 
-This package will include python packages that implement k-means clustering from scratch. This will work on any dataset with valid numerical features, and includes fit, predict, and score functions, as well as as elbow and silhouette methods for hyperparameter “k” optimization.
+This package will include python packages that implement k-means clustering from scratch. This will work on any dataset with valid numerical features, and includes fit, predict, and cluster_summary functions, as well as as elbow and silhouette methods for hyperparameter “k” optimization.
 
 + fit: This function classifies the non-labeled data into a given number of clusters k using simple KMeans algorithm. It returns labels for each data point according to the cluster it belongs and also cluster centers. This is a type of unsupervised learning method to classify data.
 
