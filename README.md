@@ -6,7 +6,7 @@
 
 Saurav, Rob, James, Sree
 
-### Milestone 1 README
+### Milestone 2 README
 
 This package will include python packages that implement k-means clustering from scratch. This will work on any dataset with valid numerical features, and includes fit, predict, and cluster_summary functions, as well as as elbow and silhouette methods for hyperparameter “k” optimization.
 
