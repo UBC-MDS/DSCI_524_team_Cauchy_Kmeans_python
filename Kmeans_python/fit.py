@@ -140,7 +140,7 @@ def fit(X_train, k, n_init = 10, max_iter = 200):
     while i <= n_init:
         
         # randomly initializing centers
-        centers = random_init(X, k, n_features)
+        centers = X[np.random.choice(range(n_samples), k, replace=False), :]
         
         for j in range(max_iter):
             
