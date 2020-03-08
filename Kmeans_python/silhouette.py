@@ -1,7 +1,7 @@
+from Kmeans_python.fit import fit
 import altair as alt
 import numpy as np
 import pandas as pd
-from Kmeans_python import fit
 
 def sil_score(X, labels):
     """

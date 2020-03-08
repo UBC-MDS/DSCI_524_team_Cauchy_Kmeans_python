@@ -8,12 +8,11 @@ Saurav, Rob, James, Sree
 
 ### Milestone 2 README
 
-This package will include python packages that implement k-means clustering from scratch. This will work on any dataset with valid numerical features, and includes fit, predict, and cluster_summary functions, as well as as elbow and silhouette methods for hyperparameter “k” optimization.
+This package will include python packages that implement k-means clustering from scratch. This will work on any dataset with valid numerical features, and includes fit, predict, and cluster_summary functions, as well as elbow and silhouette methods for hyperparameter “k” optimization. A high level overview of each function is given below. See each function's documentation for more details.
 
-+ fit: This function classifies the non-labeled data into a given number of clusters k using simple KMeans algorithm. It returns labels for each data point according to the cluster it belongs and also cluster centers. This is a type of unsupervised learning method to classify data.
++ fit: Takes input data in an nd-array. This function classifies the non-labeled data into a given number of clusters k using simple KMeans algorithm. It returns labels for each data point according to the cluster it belongs and also cluster centers. This is a type of unsupervised learning method to classify data.
 
-+ predict: Assigns each point in a dataset to a cluster. Dataset has to be in the same format as the original dataset the model was fit on.
-
++ predict: Takes input data in an ndarray. Assigns each point in a dataset to a cluster. Dataset has to be in the same format as the original dataset the model was fit on.
 
 + elbow: Creates a plot of inertia vs number of cluster centers as per the elbow method. Calculates and returns the inertia values for all cluster centers. Useful for identifying the optimal number of clusters while using k-means clustering algorithm.
 
@@ -29,8 +28,9 @@ There is a python package sklearn.cluster.KMeans that has similar functions, and
 pip install -i https://test.pypi.org/simple/Kmeans_python
 ```
 
-### Features
-- TODO
+### Tests
+
+To test that the functions work as intended, test files have been written. Use `pytest -q tests/<test_file_name>.py` to test a specific desired function. Automated testing using the `poetry` tool will be introduced in a future release.
 
 ### Dependencies
 
