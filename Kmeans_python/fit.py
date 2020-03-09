@@ -163,6 +163,9 @@ def fit(X_train, k, n_init = 10, max_iter = 200):
             centers_final = centers
             labels_final = labels
             
+            if inertia == 0:
+                break
+            
         i = i + 1
     
     return centers_final, labels_final
