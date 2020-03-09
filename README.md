@@ -24,21 +24,76 @@ There is a python package sklearn.cluster.KMeans that has similar functions, and
 
 ### Installation:
 
+The package has not yet been deployed to pypi. Once deployed you may install the package using the command below. For now, you may clone this repo and run the functions locally.   
 ```
 pip install -i https://test.pypi.org/simple/Kmeans_python
 ```
 
 ### Tests
 
-To test that the functions work as intended, test files have been written. Use `pytest -q tests/<test_file_name>.py` to test a specific desired function. Automated testing using the `poetry` tool will be introduced in a future release.
+To test that the functions work as intended, test files have been written. You need to run `pip install -U pytest`.  
+
+Use `poetry run pytest` to test all the functions, or `pytest -q tests/<test_file_name>` to test a specific function
 
 ### Dependencies
 
 - TODO
 
 ### Usage
+Simple examples for running each function are shown below.
+fit.py 
 
-- TODO
+```python    
+    from Kmeans_python import fit    
+    import numpy as np    
+    import pandas as pd    
+    X = np.array([[1, 2], [1, 4], [1, 0],    
+                   [10, 2], [10, 4], [10, 0]])    
+    centers, labels = fit(X, 2)    
+```
+
+predict.py 
+
+```python    
+    from Kmeans_python import fit, predict    
+    import numpy as np    
+    X = np.array([[1, 2], [1, 4], [1, 0],    
+                   [10, 2], [10, 4], [10, 0]])    
+    centers, cluster_ass = fit(X, 2)  
+    X_test = np.array([[1, 0], [2, 4], [8, 1],  
+                        [9, 3], [8, 8], [0, 0]])  
+    predict(X_test, centers)  
+```
+elbow.py 
+
+```python  
+   from Kmeans_python import elbow  
+   import numpy as np  
+   X = np.array([[1, 2], [1, 4], [1, 0],  
+                 [10, 2], [10, 4], [10, 0]])  
+   centers = [2, 3, 4, 5]
+   elbow(X, centers)    
+```
+silhouette.py
+
+```python  
+   X = np.array([[1, 2], [1, 4], [1, 0],  
+                   [10, 2], [10, 4], [10, 0]])  
+   k_array = [2, 3, 4, 5]  
+   silhouette(X, k_array)  
+```
+
+cluster_summary.py
+  
+``` python  
+    from Kmeans_python import fit, cluster_summary  
+    import numpy as np  
+    import pandas as pd  
+    X = np.array([[1, 2], [1, 4], [1, 0],  
+                   [10, 2], [10, 4], [10, 0]])  
+    centers, cluster_ass = fit(X, 2)  
+    cluster_summary(centers, cluster_ass)  
+```
 
 ### Documentation
 The official documentation is hosted on Read the Docs: <https://Kmeans_python.readthedocs.io/en/latest/>
