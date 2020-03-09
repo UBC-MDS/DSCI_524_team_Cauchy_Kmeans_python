@@ -33,7 +33,7 @@ pip install -i https://test.pypi.org/simple/Kmeans_python
 
 To test that the functions work as intended, test files have been written. You need to run `pip install -U pytest`.  
 
-Use `poetry run pytest` to test all the functions.   
+Use `poetry run pytest` to test all the functions, or `pytest -q tests/<test_file_name>` to test a specific function
 
 ### Dependencies
 
