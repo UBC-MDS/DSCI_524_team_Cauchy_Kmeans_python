@@ -40,7 +40,7 @@ Use `poetry run pytest` to test all the functions, or `pytest -q tests/<test_fil
 - TODO
 
 ### Usage
-
+Simple examples for running each function are shown below.
 fit.py 
 
 ```python    
