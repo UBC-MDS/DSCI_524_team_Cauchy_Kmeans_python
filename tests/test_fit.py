@@ -2,9 +2,18 @@
 import pandas as pd
 import numpy as np 
 from sklearn import datasets
-from sklearn.cluster import KMeans
 from Kmeans_python.fit import fit
 
+## Test function for center
+def test_edge():
+
+    test_df = pd.DataFrame({'X1' : np.zeros(10), 'X2' : np.ones(10)} )
+
+    centers, labels = fit(test_df, 1)
+
+    print(labels)
+    
+    assert centers.all() == np.array([0,1]).all()
 
 ## Test function for center
 def test_center():
