@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = DSCI_524_team_Cauchy_Kmeans_python
+SPHINXPROJ    = Kmeans_python
 SOURCEDIR     = .
 BUILDDIR      = _build
 
