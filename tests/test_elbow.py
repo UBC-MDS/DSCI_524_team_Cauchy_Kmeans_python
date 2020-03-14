@@ -28,7 +28,7 @@ def test_elbow():
     assert(((isinstance(inertia, list)) | (isinstance(inertia, np.ndarray)))),\
         "Inertia is of wrong data type"
 
-    # check that error is thrown for invalid data shape input
+    # check that error is thrown for invalid data data type dict
     try:
         elbow(X_dic, centers)
         print("Should throw an error if input data is incompatible")
@@ -40,19 +40,20 @@ def test_elbow():
     p, inertia = elbow(X_df, centers)
     assert(len(inertia) == len(centers)), "Inertia has wrong number of values"
 
-    # Should work with array type centers
+    # Should work with array type centers_list
     p, inertia = elbow(X, centers_array)
-    assert(len(inertia) == len(centers_array)), "Inertia has wrong number of values"
+    assert(len(inertia) == len(centers_array)), \
+        "Inertia has wrong number of values"
 
     # check that error is thrown for invalid number of centers data type
     try:
-        elbow(X_dic, ["one", 2])
+        elbow(X, ["one", 2])
         print("Should throw an error if input data is incompatible")
         raise
     except ValueError:
         pass
 
-    # check that error is thrown for invalid number of centers data type
+    # check that error is thrown for invalid range for number of centers
     try:
         elbow(X, [2, 3, 100])
         print("Should throw an error if input data is incompatible")
@@ -62,7 +63,7 @@ def test_elbow():
 
     # check that error is thrown for invalid number of centers data type
     try:
-        elbow(X, np.array([1, 2, 3, 4]))
+        elbow(X, np.array([-1, 2, 3, 4]))
         print("Should throw an error if input data is incompatible")
         raise
     except ValueError:
