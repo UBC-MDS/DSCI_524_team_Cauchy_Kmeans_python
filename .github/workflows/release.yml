@@ -21,7 +21,13 @@ jobs:
       env:
         POETRY_VIRTUALENVS_CREATE: false
       run: |
+        pip install pandas
+        pip install numpy
         pip install poetry
+        pip install pytest
+        pip install poetry
+        pip install pytest-cov
+        pip install python-semantic-release
         poetry install
     - name: Check style
       run: poetry run flake8 --exclude=docs*
