@@ -2,7 +2,7 @@
 
 ![](https://github.com/UBC-MDS/Kmeans_python/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/Kmeans_python/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/Kmeans_python) ![Release](https://github.com/UBC-MDS/Kmeans_python/workflows/Release/badge.svg)
 
-[![Documentation Status](https://readthedocs.org/projects/Kmeans_python/badge/?version=latest)](https://Kmeans_python.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/kmeans-python/badge/?version=latest)](https://kmeans-python.readthedocs.io/en/latest/?badge=latest)
 
 Saurav, Rob, James, Sree
 
