@@ -7,6 +7,9 @@ license = "MIT"
 homepage = "https://github.com/UBC-MDS/Kmeans_python"
 repository = "https://github.com/UBC-MDS/Kmeans_python"
 documentation = 'https://kmeans-python.readthedocs.io'
+packages = [
+    { include = "Kmeans_python"},
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
