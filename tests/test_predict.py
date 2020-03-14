@@ -27,17 +27,11 @@ def test_predict():
     # check that error is thrown for invalid input datatype
     try:
         predict(X_new, centroids2)
-        print("Should throw an error for invalid" +
-              " input data")
-        raise
     except TypeError:
         pass
 
     # check that error is thrown for invalid input data shape
     try:
         predict(X_new2, centroids)
-        print("Should throw an error for invalid" +
-              " input data shape")
-        raise
     except ValueError:
         pass

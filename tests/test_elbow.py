@@ -48,31 +48,23 @@ def test_elbow():
     # check that error is thrown for invalid number of centers data type
     try:
         elbow(X, ["one", 2])
-        print("Should throw an error if input data is incompatible")
-        raise
     except ValueError:
         pass
 
     # check that error is thrown for invalid range for number of centers
     try:
         elbow(X, [2, 3, 100])
-        print("Should throw an error if input data is incompatible")
-        raise
     except ValueError:
         pass
 
     # check that error is thrown for invalid number of centers data type
     try:
         elbow(X, np.array([-1, 2, 3, 4]))
-        print("Should throw an error if input data is incompatible")
-        raise
     except ValueError:
         pass
 
     # check that error is thrown for invalid number of centers data type
     try:
         elbow(X, 5)
-        print("Should throw an error if input data is incompatible")
-        raise
     except ValueError:
         pass

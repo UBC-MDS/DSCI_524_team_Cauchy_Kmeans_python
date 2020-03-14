@@ -74,21 +74,15 @@ def test_exceptions():
 
     try:
         fit(test_df2, K)
-        print("Should throw an error for invalid number of clusters")
-        raise
     except ValueError:
         pass
 
     try:
         fit(test_df2, 1, n_init=num_init)
-        print("Should throw an error if number of initializations is set to 0")
-        raise
     except ValueError:
         pass
 
     try:
         fit(test_df2, 1, max_iter=max_iteration)
-        print("Should throw an error if number of iterations is not integer")
-        raise
     except ValueError:
         pass
