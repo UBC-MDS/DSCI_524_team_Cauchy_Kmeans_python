@@ -1,6 +1,6 @@
 ## Kmeans_python 
 
-![](https://github.com/saurav193/DSCI_524_team_Cauchy_Kmeans_python/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/saurav193/Kmeans_python/branch/master/graph/badge.svg)](https://codecov.io/gh/saurav193/DSCI_524_team_Cauchy_Kmeans_python) ![Release](https://github.com/saurav193/DSCI_524_team_Cauchy_Kmeans_python/workflows/Release/badge.svg)
+![](https://github.com/UBC-MDS/Kmeans_python/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/Kmeans_python/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/Kmeans_python) ![Release](https://github.com/UBC-MDS/Kmeans_python/workflows/Release/badge.svg)
 
 [![Documentation Status](https://readthedocs.org/projects/Kmeans_python/badge/?version=latest)](https://Kmeans_python.readthedocs.io/en/latest/?badge=latest)
 
