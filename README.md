@@ -1,4 +1,4 @@
-## Kmeans_python 
+# Kmeans_python 
 
 ![](https://github.com/UBC-MDS/Kmeans_python/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/Kmeans_python/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/Kmeans_python) ![Release](https://github.com/UBC-MDS/Kmeans_python/workflows/Release/badge.svg)
 

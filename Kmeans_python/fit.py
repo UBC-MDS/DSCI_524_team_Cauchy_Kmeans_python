@@ -12,17 +12,17 @@ def compute_distance(samples, centers):
     ----------
 
     samples : numpy.ndarray
-    all the data points in the sample
+        - all the data points in the sample
 
     centers : numpy.ndarray
-    the centroids of the clusters already selected
+        - the centroids of the clusters already selected
 
     Returns
     ---------
 
     numpy.ndarray
-    an array with all the samples and their distances from each of the
-    cluster centers
+        an array with all the samples and their distances from each of the
+        cluster centers
     """
 
     k, num_features = centers.shape
@@ -52,23 +52,23 @@ def fit(X_train, k, n_init=10, max_iter=200):
     ----------
     X_train : numpy.ndarray or a pandas.DataFrame,
     shape=(n_samples, n_features)
-    Input data that is to be clustered with features in the columns
-    and samples in rows
+        - Input data that is to be clustered with features in the columns
+          and samples in rows
 
     k : an integer(int)
-    The number of clusters we need.
+        - The number of clusters we need.
 
     Returns
     -------
     list
-    A list of the centers of each cluster.
+        A list of the centers of each cluster.
 
     list
-    A list of labels for cluster assignment for all samples in the given data
+        A list of labels for cluster assignment for all samples in the data
 
     Examples
     --------
-    >>> from Kmeans_python import fit
+    >>> from Kmeans_python.fit import fit
     >>> import numpy as np
     >>> import pandas as pd
     >>> X = np.array([[1, 2], [1, 4], [1, 0],

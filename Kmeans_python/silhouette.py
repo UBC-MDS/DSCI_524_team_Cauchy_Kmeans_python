@@ -12,14 +12,14 @@ def sil_score(X, labels):
     Parameters
     ----------
     X : 2-d array, shape=(n_samples, n_features)
-    The data to be clustered.
+         - The data to be clustered.
     labels : array
-    An array of all the labels.
+        - An array of all the labels.
 
     Returns
     -------
     float
-    The average silhouette score of all points
+        - The average silhouette score of all points
 
 
     Examples
@@ -61,18 +61,18 @@ def silhouette(X, k_array):
     Parameters
     ----------
     X : 2-d array, shape=(n_samples, n_features)
-    The data to be clustered.
+        - The data to be clustered.
     k_array : array
-    An array of all contending k values.
+         - An array of all contending k values.
 
     Returns
     -------
     1-d array
-    An array containing silhouette scores in the same order as k_array.
+        - An array containing silhouette scores in the same order as k_array.
 
     Altair chart object
-    An Altair chart displaying silhouette scores
-    with their corresponding k values.
+        - An Altair chart displaying silhouette scores
+        with their corresponding k values.
 
     Examples
     --------

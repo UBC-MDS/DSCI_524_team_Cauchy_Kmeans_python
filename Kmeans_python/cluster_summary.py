@@ -27,7 +27,8 @@ def cluster_summary(X, centroids, cluster_assignments):
 
     Examples
     --------
-    >>> from Kmeans_python import fit, cluster_summary
+    >>> from Kmeans_python.fit import fit
+    >>> from Kmeans_python.cluster_summary import cluster_summary
     >>> import numpy as np
     >>> import pandas as pd
     >>> X = np.array([[1, 2], [1, 4], [1, 0],
