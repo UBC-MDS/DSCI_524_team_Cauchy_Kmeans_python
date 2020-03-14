@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 from Kmeans_python.cluster_summary import cluster_summary
 
 
