@@ -41,33 +41,23 @@ def test_cluster_summary():
     # check that error is thrown for invalid data shape input
     try:
         cluster_summary(X2, centroids, cluster_assignments)
-        print("Should throw an error if X shape does not match centroid shape")
-        raise
     except ValueError:
         pass
 
     # check that error is thrown for invalid centroid shape input
     try:
         cluster_summary(X, centroids2, cluster_assignments)
-        print("Should throw an error for invalid centroid shape")
-        raise
     except ValueError:
         pass
 
     # check that error is thrown for invalid cluster_assignments shape input
     try:
         cluster_summary(X, centroids, cluster_assignments2)
-        print("Should throw an error if cluster_assignements length" +
-              "does not match number of examples in data")
-        raise
     except IndexError:
         pass
 
     # check that error is thrown for invalid input datatype
     try:
         cluster_summary(X, centroids3, cluster_assignments)
-        print("Should throw an error if centroids has" +
-              "a str as input")
-        raise
     except TypeError:
         pass

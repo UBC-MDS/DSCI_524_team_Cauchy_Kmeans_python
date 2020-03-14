@@ -36,15 +36,11 @@ def test_silhouette():
     # Error should be thrown for invalid input
     try:
         silhouette(X2, k_array)
-        print("Should throw error for non numeric input")
-        raise
     except ValueError:
         pass
 
     # Error should be thrown for invalid input
     try:
         silhouette(X, k_array2)
-        print("Should throw error for non numeric input")
-        raise
     except ValueError:
         pass
