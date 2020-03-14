@@ -36,7 +36,8 @@ def elbow(X, centers_list):
         [2.8284271247461903, 2.8284271247461903, 1.4142135623730951, 0.0])
         """
     # Check if number of centers is contained in an array or list
-    if not ((isinstance(centers_list, list)) | (isinstance(centers_list, np.ndarray))):
+    if not ((isinstance(centers_list, list)) |
+            (isinstance(centers_list, np.ndarray))):
         raise ValueError("Invalid input type for list of numbers of clusters.\
             centers_list must be list or a numpy array.")
 
@@ -59,7 +60,7 @@ def elbow(X, centers_list):
         X = X.to_numpy()
 
     # Convert all integer types to int
-    centers_list = [int(x) for x in centers_list]   
+    centers_list = [int(x) for x in centers_list]
 
     # Iterate through centers list and get inertia
     inertia = []
