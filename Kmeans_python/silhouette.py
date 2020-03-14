@@ -3,6 +3,7 @@ import altair as alt
 import numpy as np
 import pandas as pd
 
+
 def sil_score(X, labels):
     """
     Returns the average silhouette score of each sample
@@ -19,7 +20,7 @@ def sil_score(X, labels):
     -------
     float
     The average silhouette score of all points
-    
+
 
     Examples
     --------
@@ -27,7 +28,7 @@ def sil_score(X, labels):
     ...               [10, 2], [10, 4], [10, 0]])
     >>> labels = np.array([0, 0, 0, 1, 1, 1])
     >>> sil_score(X, labels)
-    
+
     """
     labels = labels.tolist()
     score = np.zeros(len(labels))
@@ -68,9 +69,10 @@ def silhouette(X, k_array):
     -------
     1-d array
     An array containing silhouette scores in the same order as k_array.
-    
+
     Altair chart object
-    An Altair chart displaying silhouette scores with their corresponding k values.
+    An Altair chart displaying silhouette scores
+    with their corresponding k values.
 
     Examples
     --------
@@ -78,21 +80,27 @@ def silhouette(X, k_array):
     ...               [10, 2], [10, 4], [10, 0]])
     >>> k_array = [2, 3, 4, 5]
     >>> silhouette(X, k_array)
-    
+
     """
+
+    if (X.dtype != "float" and X.dtype != "int"):
+        raise ValueError("Input X must be numeric")
+
+    if not (isinstance(k_array[0], int)):
+        raise ValueError("Input k_array must be type int")
 
     scores = []
     for i in range(len(k_array)):
         centers, labels = fit(X, k_array[i])
         score = sil_score(X, labels)
         scores.append([k_array[i], score])
-        
+
     scores = pd.DataFrame(scores)
-    scores.rename(columns = {0: "k", 1:"Score"}, inplace = True)
+    scores.rename(columns={0: "k", 1: "Score"}, inplace=True)
 
     chart = (alt.Chart(scores).mark_line().encode(
-        alt.X('k:O', axis = alt.Axis(title = 'k')),
-        alt.Y('Score:Q', axis = alt.Axis(title = 'Silhouette score')), 
-    ).properties(title = "Silhouette scores", width = 800))
-    
+        alt.X('k:O', axis=alt.Axis(title='k')),
+        alt.Y('Score:Q', axis=alt.Axis(title='Silhouette score')),
+    ).properties(title="Silhouette scores", width=800))
+
     return (scores["Score"], chart)
