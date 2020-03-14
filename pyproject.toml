@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Python package that implements the k-means algorithm"
 authors = ["saurav99 <saurav13iitr@gmail.com>"]
 license = "MIT"
+homepage = "https://github.com/UBC-MDS/Kmeans_python"
+repository = "https://github.com/UBC-MDS/Kmeans_python"
+documentation = 'https://kmeans-python.readthedocs.io'
 
 [tool.poetry.dependencies]
 python = "^3.7"
