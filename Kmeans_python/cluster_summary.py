@@ -1,11 +1,13 @@
 import numpy as np
 import pandas as pd
 
+
 def cluster_summary(X, centroids, cluster_assignments):
     """
-    Provides summary of groups created from Kmeans clustering, including centroid coordinates,
-    number of data points in training data assigned to each cluster, and within-cluster distance metrics.
-    
+    Provides summary of groups created from Kmeans clustering,
+    including centroid coordinates, number of data points in training
+    data assigned to each cluster, and within-cluster distance metrics.
+
     Parameters
     ----------
     X : array-like, shape=(n_samples, n_features)
@@ -18,11 +20,11 @@ def cluster_summary(X, centroids, cluster_assignments):
     Returns
     -------
     pandas.DataFrame
-        data frame displaying, for each cluster: 
-        centroid coordinates, 
-        number of data points in training data assigned to each cluster, 
+        data frame displaying, for each cluster:
+        centroid coordinates,
+        number of data points in training data assigned to each cluster,
         within-cluster distance metrics
-    
+
     Examples
     --------
     >>> from Kmeans_python import fit, cluster_summary
@@ -33,10 +35,14 @@ def cluster_summary(X, centroids, cluster_assignments):
     >>> centers, cluster_ass = fit(X, 2)
     >>> cluster_summary(centers, cluster_ass)
     """
-    
+    for inputs in [X, centroids, cluster_assignments]:
+        if (inputs.dtype != "float" and inputs.dtype != "int"):
+            raise TypeError("Input data must be numeric")
+
     if np.max(cluster_assignments) > centroids.shape[0]:
-        raise ValueError("Cannot have a cluster assignment greater than the total number of clusters")
-    
+        raise ValueError("Cannot have a cluster assignment \
+                         greater than the total number of clusters")
+
     try:
         df_dict = {}
         for i in range(centroids.shape[1]):
@@ -46,16 +52,18 @@ def cluster_summary(X, centroids, cluster_assignments):
         inertia_list = np.zeros(num_centroids)
         for i in range(num_centroids):
             num_assigned_list[i] = sum(cluster_assignments == i)
-            inertia_list[i] = np.sum((X[cluster_assignments == i] - centroids[i, :])**2)
-        
+            squared_dist = (X[cluster_assignments == i] - centroids[i, :])**2
+            inertia_list[i] = np.sum(squared_dist)
+
     except IndexError:
-        print("Inputs must have the following shapes: \n'X':(n, m) \n'centroids':(k, m) \n'cluster_assignments':(n,)")
+        print("Inputs must have the following shapes:\n" +
+              "'X':(n, m), 'centroids':(k, m), 'cluster_assignments':(n, )")
         raise
-        
+
     df_dict["Number of assigned training points"] = num_assigned_list
-    df_dict["Within cluster inertia"] = inertia_list    
-    
-    summary_df = pd.DataFrame(data = df_dict)
+    df_dict["Within cluster inertia"] = inertia_list
+
+    summary_df = pd.DataFrame(data=df_dict)
     summary_df.index.name = "centroid"
-     
+
     return summary_df
