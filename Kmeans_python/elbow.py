@@ -35,27 +35,31 @@ def elbow(X, centers_list):
     >>> (alt.Chart(...),
         [2.8284271247461903, 2.8284271247461903, 1.4142135623730951, 0.0])
         """
+    # Check if number of centers is contained in an array or list
+    if not ((isinstance(centers_list, list)) | (isinstance(centers_list, np.ndarray))):
+        raise ValueError("Invalid input type for list of numbers of clusters.\
+            centers_list must be list or a numpy array.")
+
+    # Check if all number of centers are integers
+    for k in centers_list:
+        if int(k) != np.ceil(k):
+            raise ValueError("Number of centers should be integers")
 
     # Ensure input arguments are valid
     if not ((isinstance(X, pd.DataFrame)) | (isinstance(X, np.ndarray))):
         raise ValueError("Invalid input type for samples. X must be \
             pandas dataframe or a numpy array.")
 
-    if not ((isinstance(centers_list, list)) | (isinstance(centers_list, np.ndarray))):
-        raise ValueError("Invalid input type for list of numbers of clusters.\
-            centers_list must be list or a numpy array.")
-
-    if (np.min(centers_list) < 1) | (np.max(centers_list) > X.shape[0]):
+    # Check if the range of number of centers is valid
+    if (np.min(centers_list) < 2) | (np.max(centers_list) > X.shape[0]):
         raise ValueError("Invalid values in list of numbers of clusters. \
             Number of clusters should be between 1 and number of samples")
 
-    if not (all(isinstance(k, int) for k in centers_list)):
-        raise ValueError("Invalid input type in centers_list",
-                         "Number of centers should be of type int")
-
-    # If X is a dataframe, convert it into a numpy array
     if isinstance(X, pd.DataFrame):
         X = X.to_numpy()
+
+    # Convert all integer types to int
+    centers_list = [int(x) for x in centers_list]   
 
     # Iterate through centers list and get inertia
     inertia = []
