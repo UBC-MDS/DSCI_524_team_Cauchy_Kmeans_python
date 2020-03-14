@@ -26,7 +26,7 @@ def elbow(X, centers_list):
 
     Examples
     --------
-    >>> from Kmeans_python import elbow
+    >>> from Kmeans_python.elbow import elbow
     >>> import numpy as np
     >>> X = np.array([[1, 2], [1, 4], [1, 0],
     ...               [10, 2], [10, 4], [10, 0]])

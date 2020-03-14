@@ -11,9 +11,6 @@ def predict(X_new, centroids):
         New data to assign to clusters
     centroids : numpy.ndarray
         array containing cluster center locations
-    distance_metric : string
-        distance metric to measure proximity of data to cluster centers.
-        Can take on values: "euclidean" (default), "manhattan", "mahalanobis"
 
     Returns
     -------
@@ -22,7 +19,8 @@ def predict(X_new, centroids):
 
     Examples
     --------
-    >>> from Kmeans_python import fit, predict
+    >>> from Kmeans_python.fit import fit
+    >>> from Kmeans_python.predict import predict
     >>> import numpy as np
     >>> X = np.array([[1, 2], [1, 4], [1, 0],
     ...               [10, 2], [10, 4], [10, 0]])

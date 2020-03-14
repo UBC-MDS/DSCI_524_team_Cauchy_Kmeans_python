@@ -1,4 +1,4 @@
-Welcome to DSCI_524_team_Cauchy_Kmeans_python's documentation!
+Welcome to Kmeans_python's documentation!
 ======================================
 
 .. toctree::
