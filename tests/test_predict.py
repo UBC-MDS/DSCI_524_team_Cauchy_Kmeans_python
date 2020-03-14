@@ -7,6 +7,7 @@ def test_predict():
 
     # helper data
     X_new = np.random.normal(0, 1, (10, 3))
+    X_new2 = np.random.normal(0, 1, (10, 4))
     centroids = np.array([[1, 2, 3], [1, 6, 10], [15, 2, 6], [1, 10, 11],
                           [3, 10, 11]])
     centroids2 = np.array([["A", 2, 3], [1, 6, 10], [15, 2, 6], [1, 10, 11],
@@ -30,4 +31,13 @@ def test_predict():
               " input data")
         raise
     except TypeError:
+        pass
+
+    # check that error is thrown for invalid input data shape
+    try:
+        predict(X_new2, centroids)
+        print("Should throw an error for invalid" +
+              " input data shape")
+        raise
+    except ValueError:
         pass
