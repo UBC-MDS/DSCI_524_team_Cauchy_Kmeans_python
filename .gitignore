@@ -138,3 +138,6 @@ dmypy.json
 **.Rproj.user*
 **.Rproj
 **.Rhistory
+
+#poetry
+poetry.lock
