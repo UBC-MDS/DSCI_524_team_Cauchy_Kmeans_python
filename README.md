@@ -38,7 +38,7 @@ Use `poetry run pytest` to test all the functions, or `pytest -q tests/<test_fil
 ### Usage
 Simple examples for running each function are shown below.
 
-- **fit.py **
+- **fit.py**
 
 ```python    
     from Kmeans_python.fit import fit    
@@ -66,7 +66,7 @@ Simple examples for running each function are shown below.
     predict(X_test, centers)  
     >>> array([1, 1, 0, 0, 0, 1])
 ```
-- **elbow.py **
+- **elbow.py**
 
 ```python  
    from Kmeans_python.elbow import elbow  
