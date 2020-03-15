@@ -35,6 +35,14 @@ To test that the functions work as intended, test files have been written. You n
 
 Use `poetry run pytest` to test all the functions, or `pytest -q tests/<test_file_name>` to test a specific function
 
+### Dependencies
+
+- pandas 3.6.1
+- numpy 3.5
+- altair 3.5
+- scikit-learn 3.5
+- scipy 3.5
+
 ### Usage
 Simple examples for running each function are shown below.
 
