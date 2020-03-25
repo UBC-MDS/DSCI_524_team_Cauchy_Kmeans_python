@@ -68,3 +68,10 @@ def test_elbow():
         elbow(X, 5)
     except ValueError:
         pass
+
+    X = np.array([['B', 2], [1, 'A']])
+    # check that error is thrown for invalid number of centers data type
+    try:
+        elbow(X, 5)
+    except ValueError:
+        pass

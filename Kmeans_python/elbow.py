@@ -35,6 +35,7 @@ def elbow(X, centers_list):
     >>> (alt.Chart(...),
         [2.8284271247461903, 2.8284271247461903, 1.4142135623730951, 0.0])
         """
+ 
     # Check if number of centers is contained in an array or list
     if not ((isinstance(centers_list, list)) |
             (isinstance(centers_list, np.ndarray))):
@@ -46,13 +47,20 @@ def elbow(X, centers_list):
         if int(k) != np.ceil(k):
             raise ValueError("Number of centers should be integers")
 
+    # Check if data points are numbers
+    data = np.reshape(X, -1)
+    print("Checking X")
+    if not any([isinstance(x, int) for x in data]):
+        raise ValueError("Invalid input type for samples. X must contain \
+            only numeric values.")
+
     # Ensure input arguments are valid
     if not ((isinstance(X, pd.DataFrame)) | (isinstance(X, np.ndarray))):
         raise ValueError("Invalid input type for samples. X must be \
             pandas dataframe or a numpy array.")
 
     # Check if the range of number of centers is valid
-    if (np.min(centers_list) < 2) | (np.max(centers_list) > X.shape[0]):
+    if (np.min(centers_list) < 1) | (np.max(centers_list) > X.shape[0]):
         raise ValueError("Invalid values in list of numbers of clusters. \
             Number of clusters should be between 1 and number of samples")
 
