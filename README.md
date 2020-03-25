@@ -4,7 +4,16 @@
 
 [![Documentation Status](https://readthedocs.org/projects/kmeans-python/badge/?version=latest)](https://kmeans-python.readthedocs.io/en/latest/?badge=latest)
 
-Saurav, Rob, James, Sree
+## The Team(In no specific order)
+
+> - Saurav Chowdhury
+>
+> - Robert Blumberg
+>
+> - James Huang
+>
+> - Sreejith Munthikodu
+
 
 ### Milestone 3 README
 
@@ -20,11 +29,11 @@ This package includeS python packages that implement k-means clustering from scr
 
 + cluster_summary: Provides summary of groups created from Kmeans clustering, including centroid coordinates, number of data points in training data assigned to each cluster, and within-cluster distance metrics.
 
-There is a python package sklearn.cluster.KMeans that has similar functions, and a built in k-means function in R. These packages are not meant to add to the existing ecosystem; they are rather intended to deepen fundamental understanding of these algorithms.
+There is a python package sklearn.cluster.KMeans that has similar functions, and a built in k-means function in R. These packages are not meant to add to the existing ecosystem; they are rather intended to deepen fundamental understanding of the Kmeans algorithms.
 
 ### Installation:
 
-The package has not yet been deployed to pypi. Once deployed you may install the package using the command below. For now, you may clone this repo and run the functions locally.   
+The package has been deployed to test pypi. You may install the package using the command below.   
 ```
 pip install -i https://test.pypi.org/simple/ kmeans-python
 ```
@@ -37,11 +46,11 @@ Use `poetry run pytest` to test all the functions, or `pytest -q tests/<test_fil
 
 ### Dependencies
 
-- pandas 3.6.1
-- numpy 3.5
-- altair 3.5
-- scikit-learn 3.5
-- scipy 3.5
+- pandas==3.6.1
+- numpy==3.5
+- altair==4.0.1
+- scikit-learn==3.5
+- scipy==3.5
 
 ### Usage
 Simple examples for running each function are shown below.
@@ -54,7 +63,7 @@ Simple examples for running each function are shown below.
     import pandas as pd    
     X = np.array([[1, 2], [1, 4], [1, 0],    
                    [10, 2], [10, 4], [10, 0]])    
-    centers, labels = fit(X, 2)  
+    fit(X, 2)  
     >>> (array([[ 1,  2],
                  [10,  2]]),
           array([0, 0, 0, 1, 1, 1]))
