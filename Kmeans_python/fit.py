@@ -101,7 +101,7 @@ def fit(X_train, k, n_init=10, max_iter=200):
         X = X_train
 
     for i in range(X.shape[1]):
-        if np.any([isinstance(val, str) for val in X[:,i]]):
+        if np.any([isinstance(val, str) for val in X[:, i]]):
             raise ValueError("Input samples got string values. \
                 All X_train values must be numeric.")
 
