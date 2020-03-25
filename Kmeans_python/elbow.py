@@ -28,7 +28,7 @@ def elbow(X, centers_list):
     --------
     >>> from Kmeans_python.elbow import elbow
     >>> import numpy as np
-    >>> X = np.array([[1, 2], [1, 4], [1, 0], 
+    >>> X = np.array([[1, 2], [1, 4], [1, 0],
     ...               [10, 2], [10, 4], [10, 0]])
     >>> centers = [2, 3, 4, 5]
     >>> elbow(X, centers)
@@ -51,7 +51,7 @@ def elbow(X, centers_list):
     if not X.shape[0] >= 2:
         raise ValueError("At least two samples should be there in data")
 
-    # Check if there are atleast two samples
+    # Prompt user to reshape if data has only one feature
     if len(X.shape) == 1:
         raise ValueError("If you have only one feature in the dataset\
             please reshape your data using X.reshape(-1, 1)")
@@ -68,12 +68,10 @@ def elbow(X, centers_list):
             raise ValueError("Number of centers should be integers")
 
     # Check if data points are numbers
-    data = np.reshape(X, -1)
+    data = np.reshape(np.array(X), -1)
     if not any([isinstance(x, int) or isinstance(x, np.int64) for x in data]):
         raise ValueError("Invalid input type for samples. X must contain \
             only numeric values.")
-
-
 
     # Check if the range of number of centers is valid
     if (np.min(centers_list) < 1) | (np.max(centers_list) > X.shape[0]):
