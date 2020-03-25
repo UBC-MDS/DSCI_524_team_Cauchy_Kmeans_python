@@ -28,14 +28,14 @@ def elbow(X, centers_list):
     --------
     >>> from Kmeans_python.elbow import elbow
     >>> import numpy as np
-    >>> X = np.array([[1, 2], [1, 4], [1, 0],
+    >>> X = np.array([[1, 2], [1, 4], [1, 0], 
     ...               [10, 2], [10, 4], [10, 0]])
     >>> centers = [2, 3, 4, 5]
     >>> elbow(X, centers)
     >>> (alt.Chart(...),
         [2.8284271247461903, 2.8284271247461903, 1.4142135623730951, 0.0])
         """
- 
+
     # Check if number of centers is contained in an array or list
     if not ((isinstance(centers_list, list)) |
             (isinstance(centers_list, np.ndarray))):
@@ -49,8 +49,7 @@ def elbow(X, centers_list):
 
     # Check if data points are numbers
     data = np.reshape(X, -1)
-    print("Checking X")
-    if not any([isinstance(x, int) for x in data]):
+    if not any([isinstance(x, int) or isinstance(x, np.int64) for x in data]):
         raise ValueError("Invalid input type for samples. X must contain \
             only numeric values.")
 
