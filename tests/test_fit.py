@@ -59,6 +59,8 @@ def test_exceptions():
     # Helper data
     test_df4 = "this is a python package"
     test_df2 = pd.DataFrame({'X1': np.arange(9), 'X2': np.arange(9)})
+    test_df5 = pd.DataFrame({'X1': [1,2,3,4], 'X2': [1,2,"A", "BC"]})
+    
     K = -2
     num_init = 0
     max_iteration = 4.5
@@ -74,6 +76,11 @@ def test_exceptions():
 
     try:
         fit(test_df2, K)
+    except ValueError:
+        pass
+    
+    try:
+        fit(test_df5, 2)
     except ValueError:
         pass
 

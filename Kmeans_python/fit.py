@@ -76,9 +76,9 @@ def fit(X_train, k, n_init=10, max_iter=200):
     >>> centers, labels = fit(X, 2)
     """
 
-    test_df = isinstance(X_train, pd.DataFrame)
+    type_df = isinstance(X_train, pd.DataFrame)
 
-    if not (test_df | (isinstance(X_train, np.ndarray))):
+    if not (type_df | (isinstance(X_train, np.ndarray))):
         raise ValueError("Invalid input type for samples. \
             X_train must be pandas dataframe or a numpy array.")
 
@@ -99,6 +99,12 @@ def fit(X_train, k, n_init=10, max_iter=200):
         X = X_train.to_numpy()
     else:
         X = X_train
+
+    for i in range(X.shape[1]):
+        if np.any([isinstance(val, str) for val in X[:,i]]):
+            raise ValueError("Input samples got string values. \
+                All X_train values must be numeric.")
+
     n_samples, n_features = X.shape
 
     labels = np.empty((n_samples, 1))
