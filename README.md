@@ -4,11 +4,9 @@
 
 [![Documentation Status](https://readthedocs.org/projects/kmeans-python/badge/?version=latest)](https://kmeans-python.readthedocs.io/en/latest/?badge=latest)
 
-Saurav, Rob, James, Sree
+Rob Blumberg, Saurav Chowdhury, James Huang, Sreejith Munthikodu
 
-### Milestone 3 README
-
-This package includeS python packages that implement k-means clustering from scratch. This will work on any dataset with valid numerical features, and includes fit, predict, and cluster_summary functions, as well as elbow and silhouette methods for hyperparameter “k” optimization. A high level overview of each function is given below. See each function's documentation for more details.
+This package includes python packages that implement k-means clustering from scratch. This will work on any dataset with valid numerical features, and includes fit, predict, and cluster_summary functions, as well as elbow and silhouette methods for hyperparameter “k” optimization. A high level overview of each function is given below. See each function's documentation for more details.
 
 + fit: Takes input data in an nd-array. This function classifies the non-labeled data into a given number of clusters k using simple KMeans algorithm. It returns labels for each data point according to the cluster it belongs and also cluster centers. This is a type of unsupervised learning method to classify data.
 
@@ -24,24 +22,21 @@ There is a python package sklearn.cluster.KMeans that has similar functions, and
 
 ### Installation:
 
-The package has not yet been deployed to pypi. Once deployed you may install the package using the command below. For now, you may clone this repo and run the functions locally.   
+Use `pip` to install this package
 ```
 pip install -i https://test.pypi.org/simple/ kmeans-python
 ```
 
 ### Tests
 
-To test that the functions work as intended, test files have been written. You need to run `pip install -U pytest`.  
-
-Use `poetry run pytest` to test all the functions, or `pytest -q tests/<test_file_name>` to test a specific function
+To test that the functions work as intended, test files have been written. You may need to run `pip install -U pytest` to test all the functions. Then use `poetry run pytest` to test all the functions, or `pytest -q tests/<test_file_name>` to test a specific function
 
 ### Dependencies
 
-- pandas 3.6.1
-- numpy 3.5
-- altair 3.5
-- scikit-learn 3.5
-- scipy 3.5
+- pandas 1.0.1
+- numpy 1.18.1
+- altair 4.0.1
+- scikit-learn 0.22.1
 
 ### Usage
 Simple examples for running each function are shown below.
@@ -53,11 +48,8 @@ Simple examples for running each function are shown below.
     import numpy as np    
     import pandas as pd    
     X = np.array([[1, 2], [1, 4], [1, 0],    
-                   [10, 2], [10, 4], [10, 0]])    
+                  [10, 2], [10, 4], [10, 0]])    
     centers, labels = fit(X, 2)  
-    >>> (array([[ 1,  2],
-                 [10,  2]]),
-          array([0, 0, 0, 1, 1, 1]))
 ```
 
 - **predict.py**
@@ -83,29 +75,37 @@ Simple examples for running each function are shown below.
                  [10, 2], [10, 4], [10, 0]])  
    centers = [2, 3, 4, 5]
    elbow(X, centers)  
-   >>> alt.chart
+   >>> (alt.Chart(...), [2.8284271247461903, 0.0, 0.0, 0.0])
 ```
 - **silhouette.py**
 
 ```python  
+   from Kmeans_python.fit import fit
+   from Kmeans_python.silhouette import silhouette  
+   import numpy as np
    X = np.array([[1, 2], [1, 4], [1, 0],  
                    [10, 2], [10, 4], [10, 0]])  
    k_array = [2, 3, 4, 5]  
    silhouette(X, k_array)  
-   >>> alt.chart
+   >>> (0    0.713348
+        1    0.436301
+        2    0.166667
+        3    0.083333
+      Name: Score, dtype: float64,
+      alt.Chart(...))
 ```
 
 - **cluster_summary.py**
   
-``` python  
+```python  
     from Kmeans_python.fit import fit
-    from Kmean_python.cluster_summary import cluster_summary  
+    from Kmeans_python.cluster_summary import cluster_summary  
     import numpy as np  
     import pandas as pd  
     X = np.array([[1, 2], [1, 4], [1, 0],  
-                   [10, 2], [10, 4], [10, 0]])  
+                  [10, 2], [10, 4], [10, 0]])  
     centers, cluster_ass = fit(X, 2)  
-    cluster_summary(centers, cluster_ass)  
+    cluster_summary(X, centers, cluster_ass)  
     >>> 
                   x1  x2  Number of assigned training points  Within cluster inertia
  centroid                                                                    
