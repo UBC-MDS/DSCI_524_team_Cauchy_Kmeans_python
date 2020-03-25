@@ -42,6 +42,20 @@ def elbow(X, centers_list):
         raise ValueError("Invalid input type for list of numbers of clusters.\
             centers_list must be list or a numpy array.")
 
+    # Ensure input arguments are valid
+    if not ((isinstance(X, pd.DataFrame)) | (isinstance(X, np.ndarray))):
+        raise ValueError("Invalid input type for samples. X must be \
+            pandas dataframe or a numpy array.")
+
+    # Check if there are atleast two samples
+    if not X.shape[0] >= 2:
+        raise ValueError("At least two samples should be there in data")
+
+    # Check if there are atleast two samples
+    if len(X.shape) == 1:
+        raise ValueError("If you have only one feature in the dataset\
+            please reshape your data using X.reshape(-1, 1)")
+
     # Check if number of centers are numeric values
     data = np.reshape(centers_list, -1)
     if not any([isinstance(x, int) or isinstance(x, np.int64) for x in data]):
@@ -49,7 +63,7 @@ def elbow(X, centers_list):
             only numeric values.")
 
     # Check if all number of centers are integers
-    for k in centers_list:        
+    for k in centers_list:
         if int(k) != np.ceil(k):
             raise ValueError("Number of centers should be integers")
 
@@ -59,10 +73,7 @@ def elbow(X, centers_list):
         raise ValueError("Invalid input type for samples. X must contain \
             only numeric values.")
 
-    # Ensure input arguments are valid
-    if not ((isinstance(X, pd.DataFrame)) | (isinstance(X, np.ndarray))):
-        raise ValueError("Invalid input type for samples. X must be \
-            pandas dataframe or a numpy array.")
+
 
     # Check if the range of number of centers is valid
     if (np.min(centers_list) < 1) | (np.max(centers_list) > X.shape[0]):
