@@ -34,7 +34,7 @@ def cluster_summary(X, centroids, cluster_assignments):
     >>> X = np.array([[1, 2], [1, 4], [1, 0],
     ...               [10, 2], [10, 4], [10, 0]])
     >>> centers, cluster_ass = fit(X, 2)
-    >>> cluster_summary(centers, cluster_ass)
+    >>> cluster_summary(X, centers, cluster_ass)
     """
     for inputs in [X, centroids, cluster_assignments]:
         if (inputs.dtype != "float" and inputs.dtype != "int"):
