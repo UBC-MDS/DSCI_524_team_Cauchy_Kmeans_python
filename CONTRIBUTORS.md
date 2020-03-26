@@ -1,5 +1,5 @@
 # Contributors (sorted alphabetically)
-### Mengzhe Huang - 
+### Mengzhe Huang - jamesh4@alumni.ubc.ca
     - Implementation of Silhoutte method  
     - Package creation
     - Documentation
