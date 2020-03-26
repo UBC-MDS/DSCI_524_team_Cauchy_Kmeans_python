@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Kmeans_python"
-version = "0.1.16"
+version = "0.1.17"
 description = "Python package that implements the k-means algorithm"
 authors = ["saurav99 <saurav13iitr@gmail.com>"]
 license = "MIT"
