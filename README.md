@@ -19,7 +19,7 @@ In no specific order:
 
 ### Package description
 
-This package includes python packages that implement k-means clustering from scratch. This will work on any dataset with valid numerical features, and includes fit, predict, and cluster_summary functions, as well as elbow and silhouette methods for hyperparameter “k” optimization. A high level overview of each function is given below. See each function's documentation for more details.
+This package includes python functions that implement k-means clustering from scratch. This will work on any dataset with valid numerical features, and includes fit, predict, and cluster_summary functions, as well as elbow and silhouette methods for hyperparameter “k” optimization. A high level overview of each function is given below. See each function's documentation for more details.
 
 + fit: Takes input data in an nd-array. This function classifies the non-labeled data into a given number of clusters k using simple KMeans algorithm. It returns labels for each data point according to the cluster it belongs and also cluster centers. This is a type of unsupervised learning method to classify data.
 
@@ -33,9 +33,20 @@ This package includes python packages that implement k-means clustering from scr
 
 There is a python package sklearn.cluster.KMeans that has similar functions, and a built in k-means function in R. These packages are not meant to add to the existing ecosystem; they are rather intended to deepen fundamental understanding of the Kmeans algorithms.
 
+### Dependencies
+- pandas == 1.0.1
+- numpy == 1.18.1
+- altair == 4.0.1
+- scikit-learn == 0.22.1
+
 ### Installation:
 
-The package has been deployed to test pypi. You may install the package using the command below.   
+The package has been deployed to test pypi. If you do not have the dependencies listed above installed, please use the command below.
+```
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple kmeans-python
+```
+
+You may also install the package using the command below if the dependecicies are already installed.   
 ```
 pip install -i https://test.pypi.org/simple/ kmeans-python
 ```
@@ -46,13 +57,9 @@ To test that the functions work as intended, test files have been written. You n
 
 Use `poetry run pytest` to test all the functions, or `pytest -q tests/<test_file_name>` to test a specific function
 
-### Dependencies
-- pandas == 1.0.1
-- numpy == 1.18.1
-- altair == 4.0.1
-- scikit-learn == 0.22.1
 ### Usage
 Simple examples for running each function are shown below.
+
 - **fit.py**
 ```python    
     from Kmeans_python.fit import fit    
