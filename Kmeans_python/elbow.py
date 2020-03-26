@@ -35,24 +35,46 @@ def elbow(X, centers_list):
     >>> (alt.Chart(...),
         [2.8284271247461903, 2.8284271247461903, 1.4142135623730951, 0.0])
         """
+
     # Check if number of centers is contained in an array or list
     if not ((isinstance(centers_list, list)) |
             (isinstance(centers_list, np.ndarray))):
         raise ValueError("Invalid input type for list of numbers of clusters.\
             centers_list must be list or a numpy array.")
 
-    # Check if all number of centers are integers
-    for k in centers_list:
-        if int(k) != np.ceil(k):
-            raise ValueError("Number of centers should be integers")
-
     # Ensure input arguments are valid
     if not ((isinstance(X, pd.DataFrame)) | (isinstance(X, np.ndarray))):
         raise ValueError("Invalid input type for samples. X must be \
             pandas dataframe or a numpy array.")
 
+    # Check if there are atleast two samples
+    if not X.shape[0] >= 2:
+        raise ValueError("At least two samples should be there in data")
+
+    # Prompt user to reshape if data has only one feature
+    if len(X.shape) == 1:
+        raise ValueError("If you have only one feature in the dataset\
+            please reshape your data using X.reshape(-1, 1)")
+
+    # Check if number of centers are numeric values
+    data = np.reshape(centers_list, -1)
+    if not any([isinstance(x, int) or isinstance(x, np.int64) for x in data]):
+        raise ValueError("Invalid input type for centers. Centers_list must contain \
+            only numeric values.")
+
+    # Check if all number of centers are integers
+    for k in centers_list:
+        if int(k) != np.ceil(k):
+            raise ValueError("Number of centers should be integers")
+
+    # Check if data points are numbers
+    data = np.reshape(np.array(X), -1)
+    if not any([isinstance(x, int) or isinstance(x, np.int64) for x in data]):
+        raise ValueError("Invalid input type for samples. X must contain \
+            only numeric values.")
+
     # Check if the range of number of centers is valid
-    if (np.min(centers_list) < 2) | (np.max(centers_list) > X.shape[0]):
+    if (np.min(centers_list) < 1) | (np.max(centers_list) > X.shape[0]):
         raise ValueError("Invalid values in list of numbers of clusters. \
             Number of clusters should be between 1 and number of samples")
 

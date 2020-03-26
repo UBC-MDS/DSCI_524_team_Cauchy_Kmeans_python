@@ -8,8 +8,7 @@ def test_elbow():
     Test cases for the elbow function
     """
     # Generate helper data
-    X = np.array([[1, 2], [1, 4], [1, 0],
-                 [10, 2], [10, 4], [10, 0]])
+    X = np.array([[1, 2], [1, 4], [1, 0], [10, 2], [10, 4], [10, 0]])
     centers = [2, 3, 4, 5]
 
     X_dic = {"x": [1, 2, 3]}
@@ -66,5 +65,36 @@ def test_elbow():
     # check that error is thrown for invalid number of centers data type
     try:
         elbow(X, 5)
+    except ValueError:
+        pass
+
+    X = np.array([['B', 2], [1, 'A']])
+    # check that error is thrown for invalid input data type
+    try:
+        elbow(X, [1, 2])
+    except ValueError:
+        pass
+
+    X = np.array([1, 2, 4, 7, 10, 3])
+    centers = [1, 2, 3]
+    # check that warning is thrown for single feature data
+    try:
+        elbow(X, centers)
+    except ValueError:
+        pass
+
+    X = np.array([1])
+    centers = [1]
+    # check that error is thrown for single sample
+    try:
+        elbow(X, centers)
+    except ValueError:
+        pass
+
+    X = np.array([[1, 2], [1, 4], [1, 0], [10, 2], [10, 4], [10, 0]])
+    centers = np.array([])
+    # check that warning is thrown for invalid number of centers
+    try:
+        elbow(X, centers)
     except ValueError:
         pass
